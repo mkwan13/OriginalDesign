@@ -11,10 +11,10 @@ void draw()
 PShape alien, head, body;
 
 void setup() {
-  size(100, 100, P2D);
+  size(100, 100);
 
   // Create the shape group
-  alien = createShape(GROUP);
+  bunny = createShape(GROUP);
 
   // Make two shapes
   head = createShape(ELLIPSE, 25, 0, 50, 50);
