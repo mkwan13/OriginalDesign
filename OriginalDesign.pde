@@ -8,27 +8,27 @@ void draw()
 }
 */
 
-PShape alien, head, body;
+int angle = 0;
 
 void setup() {
-  size(100, 100);
-
-  // Create the shape group
-  bunny = createShape(GROUP);
-
-  // Make two shapes
-  head = createShape(ELLIPSE, 25, 0, 50, 50);
-  head.setFill(color(255));
-  body = createShape(RECT, 25, 45, 50, 40);
-  body.setFill(color(0));
-
-  // Add the two "child" shapes to the parent group
-  alien.addChild(body);
-  alien.addChild(head);
+  size(640, 360);
+  background(102);
+  noStroke();
+  fill(0, 102);
 }
 
 void draw() {
-  background(204);
-  translate(50, 15);
-  shape(alien); // Draw the group
+  // Draw only when mouse is pressed
+  if (mousePressed == true) {
+    angle += 5;
+    float val = cos(radians(angle)) * 12.0;
+    for (int a = 0; a < 360; a += 75) {
+      float xoff = cos(radians(a)) * val;
+      float yoff = sin(radians(a)) * val;
+      fill(0);
+      ellipse(mouseX + xoff, mouseY + yoff, val, val);
+    }
+    fill(255);
+    ellipse(mouseX, mouseY, 2, 2);
+  }
 }
